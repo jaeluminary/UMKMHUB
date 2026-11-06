@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Saya - Wishlist & UMKM Favorit | UMKM Hub</title>
+  <meta name="description" content="Kelola akun pengguna, koleksi wishlist produk lokal, dan daftar UMKM yang Anda ikuti di UMKM Hub.">
+
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Dynamic Navbar -->
+  <div id="site-navbar"></div>
+
+  <main class="section-sm">
+    <div class="container">
+      <!-- Profile Header Card -->
+      <div class="card mb-4" style="padding: 1.75rem;">
+        <div class="flex items-center gap-4 flex-wrap">
+          <div id="userProfileAvatarBox" style="width: 80px; height: 80px; border-radius: var(--radius-full); background: var(--sky-1); display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; color: var(--navy); border: 3px solid var(--blue); overflow: hidden; flex-shrink: 0;">
+            U
+          </div>
+          <div style="flex: 1; min-width: 220px;">
+            <div class="flex items-center gap-2 mb-1">
+              <h1 id="userProfileName" style="font-size: var(--text-2xl); color: var(--navy); margin: 0;">Nama Pengguna</h1>
+              <span id="userRoleBadge" class="badge badge-sky">Pengguna</span>
+            </div>
+            <p id="userProfileBio" style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 0.35rem;">
+              Bio pengguna...
+            </p>
+            <div style="font-size: var(--text-xs); color: var(--text-muted);" id="userProfileEmail">
+              email@pengguna.com
+            </div>
+          </div>
+          <button id="btnLogoutProfile" class="btn btn-outline btn-sm" style="color: var(--danger-text); border-color: var(--danger-border);">
+            Keluar Akun
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs: Wishlist Produk, UMKM Diikuti, Pengaturan Akun -->
+      <div class="tab-list mb-4" role="tablist">
+        <button id="tabBtnWishlistProd" class="tab-btn active" role="tab" aria-selected="true">
+          🛍️ Wishlist Produk (<span id="countWishlistProd">0</span>)
+        </button>
+        <button id="tabBtnFollowing" class="tab-btn" role="tab" aria-selected="false">
+          🏢 UMKM Diikuti (<span id="countFollowing">0</span>)
+        </button>
+        <button id="tabBtnSettings" class="tab-btn" role="tab" aria-selected="false">
+          ⚙️ Pengaturan Akun
+        </button>
+      </div>
+
+      <!-- TAB 1: WISHLIST PRODUK -->
+      <section id="panelWishlistProd" role="tabpanel">
+        <div class="grid grid-auto-fit-md" id="userWishlistProductsGrid">
+          <!-- Injected via JS -->
+        </div>
+        <div id="emptyWishlistProd" class="empty-state" style="display: none;">
+          <div class="empty-state-icon">❤️</div>
+          <h3 class="empty-state-title">Wishlist Anda Masih Kosong</h3>
+          <p class="empty-state-desc">Jelajahi showcase marketplace kami dan klik tombol hati pada produk yang Anda sukai.</p>
+          <a href="marketplace.html" class="btn btn-primary btn-md">Jelajahi Produk Lokal</a>
+        </div>
+      </section>
+
+      <!-- TAB 2: UMKM DIIKUTI (FOLLOWING) -->
+      <section id="panelFollowing" role="tabpanel" style="display: none;">
+        <div class="grid grid-auto-fit-md" id="userFollowingUmkmGrid">
+          <!-- Injected via JS -->
+        </div>
+        <div id="emptyFollowing" class="empty-state" style="display: none;">
+          <div class="empty-state-icon">🏢</div>
+          <h3 class="empty-state-title">Belum Mengikuti UMKM</h3>
+          <p class="empty-state-desc">Ikuti UMKM lokal untuk mendapatkan kabar terbaru dan peluang kerjasama.</p>
+          <a href="cari.html" class="btn btn-primary btn-md">Cari UMKM Menarik</a>
+        </div>
+      </section>
+
+      <!-- TAB 3: PENGATURAN AKUN -->
+      <section id="panelSettings" role="tabpanel" style="display: none;">
+        <div class="card" style="max-width: 640px; padding: 1.75rem;">
+          <h2 style="font-size: var(--text-lg); color: var(--navy); margin-bottom: 1.25rem;">Ubah Informasi Profil</h2>
+          <form id="formUserSettings">
+            <div class="form-group">
+              <label class="form-label" for="settingName">Nama Lengkap</label>
+              <input type="text" id="settingName" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="settingBio">Bio Singkat</label>
+              <textarea id="settingBio" class="form-textarea" placeholder="Tuliskan minat atau ketertarikan Anda..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="settingAvatarInput">Ganti Foto Profil (Upload & Preview)</label>
+              <input type="file" id="settingAvatarInput" class="form-input" accept="image/*" style="padding: 0.35rem 0.5rem;">
+            </div>
+
+            <div class="flex justify-end mt-4">
+              <button type="submit" class="btn btn-primary btn-md">Simpan Perubahan</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Dynamic Footer & Mobile Bottom Navigation -->
+  <div id="site-footer"></div>
+  <div id="site-bottom-nav"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/profil.js"></script>
+</body>
+</html>
+

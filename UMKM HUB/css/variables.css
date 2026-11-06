@@ -1,0 +1,96 @@
+/* ==========================================================================
+   UMKM HUB - DESIGN SYSTEM VARIABLES
+   Sistem variabel warna resmi, tipografi, elevasi, dan radius
+   ========================================================================== */
+
+:root {
+  /* Skema Warna Wajib */
+  --lime-1: #E8F957;
+  --lime-2: #BBE11A;
+  --sky-1: #C1E5FB;
+  --sky-2: #86D0FD;
+  --blue: #4891E7;
+  --navy: #042C8F;
+
+  /* Varian Warna Fungsional & Kontras Terjaga (WCAG AA Compliant) */
+  --navy-dark: #021B59;
+  --navy-light: #0B3BAA;
+  --blue-hover: #3578CE;
+  --blue-light: #EBF4FE;
+  --lime-dark: #96B708;
+  --sky-subtle: #EBF7FE;
+
+  /* Warna Netral */
+  --white: #FFFFFF;
+  --surface-bg: #F8FAFD;
+  --card-bg: #FFFFFF;
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --text-primary: #042C8F;    /* Navy sebagai teks utama sesuai panduan */
+  --text-secondary: #475569;  /* Slate abu untuk teks penjelasan */
+  --text-muted: #94A3B8;      /* Abu terang untuk placeholder / metadata */
+  --text-inverse: #FFFFFF;    /* Hanya digunakan di atas background navy */
+
+  /* Warna Status */
+  --success-bg: #DEF7EC;
+  --success-text: #03543F;
+  --success-border: #31C48D;
+  --warning-bg: #FEF08A;
+  --warning-text: #713F12;
+  --warning-border: #FACC15;
+  --danger-bg: #FEE2E2;
+  --danger-text: #991B1B;
+  --danger-border: #F87171;
+  --info-bg: var(--sky-1);
+  --info-text: var(--navy);
+
+  /* Tipografi */
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Skala Ukuran Font */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);
+  --text-base: clamp(0.9375rem, 0.9rem + 0.25vw, 1rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.4375rem);
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.8vw, 1.875rem);
+  --text-3xl: clamp(1.875rem, 1.65rem + 1.2vw, 2.375rem);
+  --text-4xl: clamp(2.25rem, 1.95rem + 1.8vw, 3rem);
+
+  /* Radius Sudut (12-20px sesuai panduan) */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Bayangan Halus (Soft Shadows) */
+  --shadow-sm: 0 1px 3px rgba(4, 44, 143, 0.05), 0 1px 2px rgba(4, 44, 143, 0.08);
+  --shadow-md: 0 4px 12px rgba(4, 44, 143, 0.08), 0 2px 4px rgba(4, 44, 143, 0.04);
+  --shadow-lg: 0 10px 25px rgba(4, 44, 143, 0.1), 0 4px 10px rgba(4, 44, 143, 0.06);
+  --shadow-xl: 0 20px 35px rgba(4, 44, 143, 0.15);
+  --shadow-lime: 0 6px 18px rgba(187, 225, 26, 0.35);
+
+  /* Transisi & Animasi */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout & Spacing */
+  --container-max: 1240px;
+  --navbar-height: 72px;
+  --bottom-nav-height: 64px;
+  --touch-target-min: 44px;
+
+  /* Z-Index Hierarchy */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-navbar: 500;
+  --z-bottom-nav: 600;
+  --z-modal-backdrop: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+}
+

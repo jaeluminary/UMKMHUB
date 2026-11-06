@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk & Daftar Akun - UMKM Hub</title>
+  <meta name="description" content="Masuk ke akun UMKM Hub atau daftarkan profil bisnis UMKM Anda untuk menjangkau jutaan konsumen dan mitra usaha se-Indonesia.">
+
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Dynamic Navbar -->
+  <div id="site-navbar"></div>
+
+  <main class="section-sm">
+    <div class="container">
+      <div class="auth-container">
+        <!-- Auth Header Banner -->
+        <div class="auth-header">
+          <div class="nav-logo-badge" style="margin: 0 auto 0.75rem; background: var(--white); color: var(--navy);">U</div>
+          <h1 id="authMainTitle">Selamat Datang di UMKM Hub</h1>
+          <p id="authSubtitle">Masuk atau daftarkan usahamu untuk mulai berkolaborasi</p>
+        </div>
+
+        <!-- Tab Navigasi Mode: Masuk, Daftar Pengguna, Daftar Seller -->
+        <div class="segmented-control w-full" style="display: flex; margin: 1.25rem 1.5rem 0.5rem; width: calc(100% - 3rem);">
+          <button id="tabModeLogin" class="segmented-item active" style="flex: 1; text-align: center;">Masuk Akun</button>
+          <button id="tabModeRegisterUser" class="segmented-item" style="flex: 1; text-align: center;">Daftar Pembeli</button>
+          <button id="tabModeRegisterSeller" class="segmented-item" style="flex: 1; text-align: center;">Daftar Seller UMKM</button>
+        </div>
+
+        <div style="padding: 1.5rem;">
+          <!-- Kotak Akses Cepat Akun Demo (1-Click Login) -->
+          <div class="demo-box" id="demoAccountsBox">
+            <div style="font-size: var(--text-xs); font-weight: 700; color: var(--navy); margin-bottom: 0.25rem;">
+              🚀 Akses Cepat Akun Demo:
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+              Uji coba fitur penuh tanpa registrasi manual:
+            </p>
+            <div class="flex gap-2 flex-wrap">
+              <button id="btnQuickDemoSeller" class="demo-btn-pill">
+                <span>🏢 Masuk sebagai Seller Demo (Budi - Kopi Nusantara)</span>
+              </button>
+              <button id="btnQuickDemoUser" class="demo-btn-pill">
+                <span>👤 Masuk sebagai Pengguna Demo (Siti Rahma)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Alert Pesan Friendly Redirect (Jika Butuh Login) -->
+          <div id="authAlertBox" style="display: none; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--warning-bg); color: var(--warning-text); border: 1px solid var(--warning-border); font-size: var(--text-xs); margin-bottom: 1.25rem; font-weight: 600;">
+            <!-- Injected via JS -->
+          </div>
+
+          <!-- ================= FORM 1: LOGIN ================= -->
+          <form id="formLogin" style="display: block;">
+            <div class="form-group">
+              <label class="form-label" for="loginEmail">Alamat Email <span class="required">*</span></label>
+              <input type="email" id="loginEmail" class="form-input" placeholder="nama@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <div class="flex items-center justify-between">
+                <label class="form-label" for="loginPassword" style="margin: 0;">Kata Sandi <span class="required">*</span></label>
+                <button type="button" id="btnTogglePassword" class="text-blue" style="font-size: 0.75rem; font-weight: 600;">Tampilkan</button>
+              </div>
+              <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg mt-3">
+              Masuk ke Akun
+            </button>
+          </form>
+
+          <!-- ================= FORM 2: REGISTER USER BIASA ================= -->
+          <form id="formRegisterUser" style="display: none;">
+            <div class="form-group">
+              <label class="form-label" for="regUserName">Nama Lengkap <span class="required">*</span></label>
+              <input type="text" id="regUserName" class="form-input" placeholder="Contoh: Siti Rahma" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regUserEmail">Alamat Email <span class="required">*</span></label>
+              <input type="email" id="regUserEmail" class="form-input" placeholder="nama@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="regUserPassword">Kata Sandi <span class="required">*</span></label>
+              <input type="password" id="regUserPassword" class="form-input" placeholder="Minimal 6 karakter" required minlength="6">
+            </div>
+
+            <button type="submit" class="btn btn-cta btn-full btn-lg mt-3">
+              Daftar sebagai Pengguna
+            </button>
+          </form>
+
+          <!-- ================= FORM 3: WIZARD REGISTRASI SELLER UMKM ================= -->
+          <div id="wizardSellerContainer" style="display: none;">
+            <!-- Step Indicators -->
+            <div class="wizard-steps mb-4">
+              <div class="wizard-step-node active" id="wizardNode1">
+                <div class="wizard-step-circle">1</div>
+                <span>Info Usaha</span>
+              </div>
+              <div class="wizard-step-node" id="wizardNode2">
+                <div class="wizard-step-circle">2</div>
+                <span>Lokasi</span>
+              </div>
+              <div class="wizard-step-node" id="wizardNode3">
+                <div class="wizard-step-circle">3</div>
+                <span>Kontak</span>
+              </div>
+              <div class="wizard-step-node" id="wizardNode4">
+                <div class="wizard-step-circle">4</div>
+                <span>Kolaborasi</span>
+              </div>
+            </div>
+
+            <form id="formRegisterSellerWizard">
+              <!-- LANGKAH 1: Info Dasar Usaha -->
+              <div class="wizard-step-content" id="stepContent1">
+                <div class="form-group">
+                  <label class="form-label" for="wizOwnerName">Nama Pemilik Usaha <span class="required">*</span></label>
+                  <input type="text" id="wizOwnerName" class="form-input" placeholder="Nama Anda" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizSellerEmail">Email Akun Login <span class="required">*</span></label>
+                  <input type="email" id="wizSellerEmail" class="form-input" placeholder="email@bisnis.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizSellerPassword">Kata Sandi <span class="required">*</span></label>
+                  <input type="password" id="wizSellerPassword" class="form-input" placeholder="Minimal 6 karakter" required minlength="6">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizBusinessName">Nama Brand / UMKM <span class="required">*</span></label>
+                  <input type="text" id="wizBusinessName" class="form-input" placeholder="Contoh: Kopi Gayo Mandiri" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizBusinessSlogan">Slogan Singkat Usaha <span class="required">*</span></label>
+                  <input type="text" id="wizBusinessSlogan" class="form-input" placeholder="Contoh: Kopi Asli Petani Dataran Tinggi Gayo" required>
+                </div>
+
+                <div class="flex justify-end mt-4">
+                  <button type="button" class="btn btn-primary btn-md btn-next-step" data-next="2">Lanjut ke Langkah 2 &rarr;</button>
+                </div>
+              </div>
+
+              <!-- LANGKAH 2: Kategori & Lokasi -->
+              <div class="wizard-step-content" id="stepContent2" style="display: none;">
+                <div class="form-group">
+                  <label class="form-label" for="wizCategory">Kategori Sektor Usaha <span class="required">*</span></label>
+                  <select id="wizCategory" class="form-select" required>
+                    <option value="Kuliner">Kuliner</option>
+                    <option value="Kriya & Kerajinan">Kriya & Kerajinan</option>
+                    <option value="Fesyen">Fesyen</option>
+                    <option value="Pertanian & Agro">Pertanian & Agro</option>
+                    <option value="Jasa">Jasa</option>
+                    <option value="Teknologi & Digital">Teknologi & Digital</option>
+                    <option value="Kecantikan & Herbal">Kecantikan & Herbal</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizCity">Kota / Domisili Usaha <span class="required">*</span></label>
+                  <select id="wizCity" class="form-select" required>
+                    <option value="Bogor">Bogor</option>
+                    <option value="Bandung">Bandung</option>
+                    <option value="Jakarta">Jakarta</option>
+                    <option value="Yogyakarta">Yogyakarta</option>
+                    <option value="Surabaya">Surabaya</option>
+                    <option value="Denpasar">Denpasar</option>
+                    <option value="Medan">Medan</option>
+                    <option value="Makassar">Makassar</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizAddress">Alamat Lengkap Usaha <span class="required">*</span></label>
+                  <input type="text" id="wizAddress" class="form-input" placeholder="Jl. Contoh No. 123, Kecamatan, Kota" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizDesc">Deskripsi Ringkas Usaha <span class="required">*</span></label>
+                  <textarea id="wizDesc" class="form-textarea" placeholder="Jelaskan produk unggulan dan layanan bisnis Anda..." required></textarea>
+                </div>
+
+                <div class="flex justify-between mt-4">
+                  <button type="button" class="btn btn-outline btn-md btn-prev-step" data-prev="1">&larr; Kembali</button>
+                  <button type="button" class="btn btn-primary btn-md btn-next-step" data-next="3">Lanjut ke Langkah 3 &rarr;</button>
+                </div>
+              </div>
+
+              <!-- LANGKAH 3: Kontak & Sosmed -->
+              <div class="wizard-step-content" id="stepContent3" style="display: none;">
+                <div class="form-group">
+                  <label class="form-label" for="wizWa">Nomor WhatsApp Bisnis <span class="required">*</span></label>
+                  <input type="text" id="wizWa" class="form-input" placeholder="628123456789" required>
+                  <span class="form-helper">Format internasional (diawali 628...)</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizPhone">Nomor Telepon Kantor (Opsional)</label>
+                  <input type="text" id="wizPhone" class="form-input" placeholder="021-xxxxxx atau 08xxxx">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizInstagram">Akun Instagram (Opsional)</label>
+                  <input type="text" id="wizInstagram" class="form-input" placeholder="@namausahamu">
+                </div>
+
+                <div class="flex justify-between mt-4">
+                  <button type="button" class="btn btn-outline btn-md btn-prev-step" data-prev="2">&larr; Kembali</button>
+                  <button type="button" class="btn btn-primary btn-md btn-next-step" data-next="4">Lanjut ke Langkah 4 &rarr;</button>
+                </div>
+              </div>
+
+              <!-- LANGKAH 4: Kebutuhan & Penawaran (Minat Kolaborasi) -->
+              <div class="wizard-step-content" id="stepContent4" style="display: none;">
+                <div class="form-group">
+                  <label class="form-label" for="wizNeeds">Apa yang Bisnis Anda Butuhkan? (Pisahkan dengan koma)</label>
+                  <input type="text" id="wizNeeds" class="form-input" placeholder="Contoh: Kemasan ramah lingkungan, Jasa foto katalog, Reseller">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizOffers">Apa yang Bisnis Anda Tawarkan? (Pisahkan dengan koma)</label>
+                  <input type="text" id="wizOffers" class="form-input" placeholder="Contoh: Kopi biji sangrai, Maklon kemasan, Suplai grosir">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="wizStory">Kisah Singkat Usaha (Opsional)</label>
+                  <textarea id="wizStory" class="form-textarea" placeholder="Bagaimana awal mula Anda mendirikan usaha ini..."></textarea>
+                </div>
+
+                <div class="flex justify-between mt-4">
+                  <button type="button" class="btn btn-outline btn-md btn-prev-step" data-prev="3">&larr; Kembali</button>
+                  <button type="submit" class="btn btn-cta btn-lg">Selesaikan & Buka Dashboard Seller</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Dynamic Footer & Mobile Bottom Navigation -->
+  <div id="site-footer"></div>
+  <div id="site-bottom-nav"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
+
