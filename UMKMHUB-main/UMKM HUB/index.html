@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMKM Hub - Platform Kolaborasi & Ekosistem Bisnis UMKM Indonesia</title>
+  <meta name="description" content="Hubungkan usahamu dengan ribuan UMKM se-Indonesia. Kolaborasi B2B, eksposur pasar nasional, kriya, fashion, kuliner, dan agro.">
+
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Dynamic Navbar -->
+  <div id="site-navbar"></div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span></span> Komunitas & Kolaborasi UMKM
+      </div>
+      <h1 class="hero-title">
+        Tumbuh Bersama Lewat <span class="highlight">Kolaborasi UMKM</span>
+      </h1>
+      <p class="hero-desc">
+        Temukan mitra bisnis, pasokan bahan baku, dan perluas eksposur produk unggulanmu ke seluruh nusantara.
+      </p>
+
+      <!-- Big Search Bar with Autosuggest -->
+      <div class="hero-search-wrapper" style="position: relative;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.5" style="margin-left: 0.75rem; flex-shrink: 0;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="heroSearchInput" class="hero-search-input" placeholder="Cari usaha, produk, atau kota..." autocomplete="off">
+        <button id="heroSearchBtn" class="btn btn-primary btn-md">
+          <span>Cari</span>
+        </button>
+        <ul id="heroAutosuggest" class="autosuggest-list" style="display: none;"></ul>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-center gap-3 flex-wrap">
+        <a href="login.html?mode=seller-register" class="btn btn-cta btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+          Daftar UMKM
+        </a>
+        <a href="cari.html" class="btn btn-outline btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Jelajahi UMKM
+        </a>
+      </div>
+
+      <!-- Live Stats Bar -->
+      <div class="hero-stats-grid">
+        <div class="hero-stat-card">
+          <div style="font-size: 1.35rem; margin-bottom: 0.2rem;">🏢</div>
+          <div class="hero-stat-number" id="statUmkmCount">24+</div>
+          <div class="hero-stat-label">UMKM Mitra</div>
+        </div>
+        <div class="hero-stat-card">
+          <div style="font-size: 1.35rem; margin-bottom: 0.2rem;">🛍️</div>
+          <div class="hero-stat-number" id="statProductCount">64+</div>
+          <div class="hero-stat-label">Produk Lokal</div>
+        </div>
+        <div class="hero-stat-card">
+          <div style="font-size: 1.35rem; margin-bottom: 0.2rem;">🤝</div>
+          <div class="hero-stat-number" id="statCollabCount">15+</div>
+          <div class="hero-stat-label">Kolaborasi Aktif</div>
+        </div>
+        <div class="hero-stat-card">
+          <div style="font-size: 1.35rem; margin-bottom: 0.2rem;">📍</div>
+          <div class="hero-stat-number" id="statCityCount">8</div>
+          <div class="hero-stat-label">Kota Terjangkau</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kategori Populer -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Sektor Unggulan</span>
+        <h2 class="section-title">Kategori Bisnis Populer</h2>
+        <p class="section-subtitle">Temukan potensi kemitraan dan produk khas dari sektor favorit</p>
+      </div>
+      <div class="grid grid-auto-fit-sm" id="categoryGrid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- UMKM Unggulan -->
+  <section class="section" style="background-color: var(--white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="flex items-center justify-between section-header">
+        <div>
+          <span class="section-eyebrow">Sorotan Komunitas</span>
+          <h2 class="section-title">UMKM Unggulan Terbuka Kolaborasi</h2>
+          <p class="section-subtitle">Bisnis lokal inspiratif yang aktif mencari mitra dan memperluas jaringan</p>
+        </div>
+        <a href="cari.html?terbukaKolaborasi=true" class="btn btn-outline-blue btn-sm hide-mobile">
+          Lihat Semua <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </div>
+      <div class="grid grid-auto-fit-md" id="featuredUmkmGrid">
+        <!-- Skeleton Loading State -->
+        <div class="card" style="height: 320px;"><div class="skeleton" style="height: 100%;"></div></div>
+        <div class="card" style="height: 320px;"><div class="skeleton" style="height: 100%;"></div></div>
+        <div class="card" style="height: 320px;"><div class="skeleton" style="height: 100%;"></div></div>
+      </div>
+      <div class="text-center mt-4 hide-desktop">
+        <a href="cari.html" class="btn btn-outline-blue btn-full">Lihat Semua UMKM</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Board Kolaborasi Terbaru (B2B Preview) -->
+  <section class="section">
+    <div class="container">
+      <div class="flex items-center justify-between section-header">
+        <div>
+          <span class="section-eyebrow">Papan Pengumuman B2B</span>
+          <h2 class="section-title">Peluang Kolaborasi Terbaru</h2>
+          <p class="section-subtitle">Pemasok dicari, penawaran layanan, dan kemitraan strategis</p>
+        </div>
+        <a href="board.html" class="btn btn-outline-blue btn-sm hide-mobile">
+          Buka Board Kolaborasi <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </div>
+      <div class="grid grid-auto-fit-md" id="recentBoardGrid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Alur 3 Langkah Cara Kerja -->
+  <section class="section" style="background-color: var(--surface-bg); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Mudah & Terpadu</span>
+        <h2 class="section-title">Cara Kerja UMKM Hub</h2>
+        <p class="section-subtitle">3 langkah sederhana untuk mendigitalkan bisnismu dan menjalin kemitraan</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 style="font-size: var(--text-lg); margin-bottom: 0.5rem;">Daftar & Pasang Etalase</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary);">
+            Buat profil bisnis digital lengkap dalam hitungan menit. Tampilkan katalog produk, kontak WhatsApp, dan tag kebutuhan usahamu.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 style="font-size: var(--text-lg); margin-bottom: 0.5rem;">Cocokkan Kebutuhan (Matcher)</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary);">
+            Gunakan algoritma Matcher pintar kami yang secara otomatis mencocokkan apa yang kamu butuhkan dengan apa yang ditawarkan UMKM lain.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 style="font-size: var(--text-lg); margin-bottom: 0.5rem;">Jangkau Pasar & Komunitas</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary);">
+            Bergabunglah dengan obrolan grup komunitas kota/sektoral, pasang pengumuman di Board, dan layani pesanan langsung tanpa perantara.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 2.5rem;">
+        <a href="login.html?mode=seller-register" class="btn btn-cta btn-lg">
+          Daftarkan Bisnismu — Gratis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forum Preview -->
+  <section class="section">
+    <div class="container">
+      <div class="flex items-center justify-between section-header">
+        <div>
+          <span class="section-eyebrow">Ruang Diskusi</span>
+          <h2 class="section-title">Diskusi Hangat di Forum</h2>
+          <p class="section-subtitle">Berbagi wawasan pemasaran, izin usaha, dan solusi tantangan bisnis</p>
+        </div>
+        <a href="forum.html" class="btn btn-outline-blue btn-sm hide-mobile">
+          Kunjungi Forum <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </div>
+      <div class="grid grid-auto-fit-md" id="forumPreviewGrid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Footer & Mobile Bottom Navigation -->
+  <div id="site-footer"></div>
+  <div id="site-bottom-nav"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+/* ==========================================================================
+   UMKM HUB - DESIGN SYSTEM VARIABLES
+   Sistem variabel warna humanis, ramah, hangat, bersih & rapih
+   (Non-tech / non-cyber, BUKAN tema botani/nature, melainkan natural & manusiawi)
+   ========================================================================== */
+
+:root {
+  /* Skema Warna Utama: Hangat, Terpercaya & Ramah */
+  --navy: #0F2A66;          /* Deep warm navy - solid, terpercaya, berwibawa */
+  --navy-dark: #0A1C47;
+  --navy-light: #1A3E8F;
+  --blue: #2563EB;          /* Biru ramah & modern - jernih dan mudah dibaca */
+  --blue-hover: #1D4ED8;
+  --blue-light: #EFF6FF;
+  --sky-1: #E0F2FE;          /* Biru langit lembut sejuk */
+  --sky-2: #BAE6FD;
+  --sky-subtle: #F0F9FF;
+
+  /* Aksen Fun & Ceria: Golden Amber & Warm Honey (Ceria, bersahabat, TIDAK neon, BUKAN daun/nature) */
+  --lime-1: #FBBF24;        /* Warm sunny amber - ceria, hangat, enerjik */
+  --lime-2: #F59E0B;        /* Golden amber solid untuk tombol & badge */
+  --lime-dark: #D97706;     /* Deep amber untuk teks terbaca tinggi */
+
+  /* Warna Netral & Keterbacaan Optimal (WCAG AAA Compliant) */
+  --white: #FFFFFF;
+  --surface-bg: #F8FAFC;    /* Latar belakang bersih, lembut, tidak silau */
+  --card-bg: #FFFFFF;
+  --border-light: #E2E8F0;  /* Garis batas tipis rapi */
+  --border-medium: #CBD5E1;
+  --border-hover: #94A3B8;
+
+  --text-primary: #0F172A;   /* Teks utama: Charcoal slate gelap, kontras tinggi & nyaman dibaca */
+  --text-heading: #0F2A66;   /* Judul: Deep warm navy untuk identitas kokoh */
+  --text-secondary: #475569; /* Teks deskripsi & penjelasan (Slate seimbang) */
+  --text-muted: #64748B;     /* Metadata & placeholder yang tetap terbaca jelas */
+  --text-inverse: #FFFFFF;   /* Teks putih di atas latar kontras */
+
+  /* Warna Status Ramah */
+  --success-bg: #ECFDF5;
+  --success-text: #065F46;
+  --success-border: #A7F3D0;
+  --warning-bg: #FFFBEB;
+  --warning-text: #92400E;
+  --warning-border: #FDE68A;
+  --danger-bg: #FEF2F2;
+  --danger-text: #991B1B;
+  --danger-border: #FECACA;
+  --info-bg: #EFF6FF;
+  --info-text: #1E40AF;
+
+  /* Tipografi */
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Skala Ukuran Font Seimbang & Terbaca */
+  --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);
+  --text-base: clamp(0.9375rem, 0.9rem + 0.25vw, 1rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.375rem);
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.8vw, 1.75rem);
+  --text-3xl: clamp(1.875rem, 1.65rem + 1.2vw, 2.25rem);
+  --text-4xl: clamp(2.25rem, 1.95rem + 1.8vw, 2.85rem);
+
+  /* Radius Sudut Halus & Bersahabat (10-18px) */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Bayangan Alami & Organik (Ambient Light Diffusion, bukan neon tech) */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-md: 0 4px 14px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 10px 24px -4px rgba(15, 23, 42, 0.07), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+  --shadow-xl: 0 20px 35px -8px rgba(15, 23, 42, 0.1);
+  --shadow-lime: 0 4px 14px rgba(245, 158, 11, 0.25); /* Hangat amber glow, ceria & menyenangkan */
+
+  /* Transisi Halus */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout & Spacing */
+  --container-max: 1200px;
+  --navbar-height: 70px;
+  --bottom-nav-height: 64px;
+  --touch-target-min: 44px;
+
+  /* Z-Index Hierarchy */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-navbar: 500;
+  --z-bottom-nav: 600;
+  --z-modal-backdrop: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+}

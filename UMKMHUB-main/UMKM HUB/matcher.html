@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolaborasi Matcher B2B - Rekomendasi Mitra Pintar | UMKM Hub</title>
+  <meta name="description" content="Algoritma cerdas pencocokan kebutuhan dan penawaran antar-UMKM. Temukan pemasok, mitra produksi, dan reseller yang saling melengkapi.">
+
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Dynamic Navbar -->
+  <div id="site-navbar"></div>
+
+  <main class="section-sm">
+    <div class="container">
+      <!-- Header Matcher -->
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+        <span class="section-eyebrow">Smart B2B Matcher</span>
+        <h1 class="section-title">Kolaborasi Matcher Otomatis</h1>
+        <p class="section-subtitle">
+          Algoritma dua arah mencocokkan apa yang bisnis Anda butuhkan dengan apa yang ditawarkan oleh UMKM rekanan di seluruh Indonesia.
+        </p>
+      </div>
+
+      <!-- Config Panel: Pilih Profil UMKM & Edit Tags Kebutuhan/Penawaran -->
+      <div class="matcher-panel">
+        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <div>
+            <h2 style="font-size: var(--text-base); color: var(--navy); margin: 0;">Profil Usaha Anda</h2>
+            <p style="font-size: var(--text-xs); color: var(--text-secondary); margin: 0;">Pilih profil untuk dicocokkan:</p>
+          </div>
+          <div style="min-width: 240px;">
+            <select id="selectMyUmkm" class="form-select" style="min-height: 40px; font-weight: 600;">
+              <!-- Injected via JS -->
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
+          <!-- Tags Kebutuhan Saya -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="form-label" style="margin: 0;">🔍 Kebutuhan Bisnis Saya:</label>
+              <button id="btnAddNeedTag" class="btn btn-ghost btn-sm" style="font-size: 0.75rem; color: var(--blue);">+ Tambah Kebutuhan</button>
+            </div>
+            <div id="myNeedsTagsContainer" class="flex items-center gap-2 flex-wrap" style="min-height: 38px;">
+              <!-- Tags Kebutuhan Aktif -->
+            </div>
+          </div>
+
+          <!-- Tags Penawaran Saya -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="form-label" style="margin: 0;">🤝 Penawaran Bisnis Saya:</label>
+              <button id="btnAddOfferTag" class="btn btn-ghost btn-sm" style="font-size: 0.75rem; color: var(--blue);">+ Tambah Penawaran</button>
+            </div>
+            <div id="myOffersTagsContainer" class="flex items-center gap-2 flex-wrap" style="min-height: 38px;">
+              <!-- Tags Penawaran Aktif -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Toolbar -->
+      <div class="flex items-center justify-between mb-3">
+        <h2 style="font-size: var(--text-lg); color: var(--navy); margin: 0;">Rekomendasi Mitra Cocok</h2>
+        <span id="matcherCountBadge" class="badge badge-sky">0 Rekomendasi</span>
+      </div>
+
+      <!-- Result Cards Grid -->
+      <div class="grid grid-auto-fit-md" id="matcherResultsGrid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Ajak Kolaborasi Matcher -->
+  <div id="matcherCollabModal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Ajak Kolaborasi Mitra Cocok</h3>
+        <button id="btnCloseMatcherModal" class="modal-close" aria-label="Tutup Modal">&times;</button>
+      </div>
+      <form id="matcherCollabForm">
+        <div class="modal-body">
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: 1rem;">
+            Kirimkan penawaran kemitraan ke <strong id="matcherTargetName">UMKM</strong>.
+          </p>
+          <div class="form-group">
+            <label class="form-label" for="matcherCollabTopic">Topik Kerjasama <span class="required">*</span></label>
+            <input type="text" id="matcherCollabTopic" class="form-input" placeholder="Contoh: Suplai kemasan ramah lingkungan" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="matcherCollabMessage">Pesan Singkat <span class="required">*</span></label>
+            <textarea id="matcherCollabMessage" class="form-textarea" placeholder="Tuliskan detail tawaran atau kebutuhan Anda..." required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnCancelMatcherModal" class="btn btn-outline btn-sm">Batal</button>
+          <button type="submit" class="btn btn-cta btn-sm">Kirim Ajakan Kolaborasi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dynamic Footer & Mobile Bottom Navigation -->
+  <div id="site-footer"></div>
+  <div id="site-bottom-nav"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/matcher.js"></script>
+</body>
+</html>
+

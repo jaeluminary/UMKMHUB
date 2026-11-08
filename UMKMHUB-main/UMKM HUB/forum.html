@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum Komunitas UMKM - Diskusi & Berbagi Pengalaman Bisnis | UMKM Hub</title>
+  <meta name="description" content="Ruang diskusi wirausaha UMKM se-Indonesia. Tips pemasaran, manajemen keuangan, izin usaha, dan solusi tantangan bisnis.">
+
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Dynamic Navbar -->
+  <div id="site-navbar"></div>
+
+  <main class="section-sm">
+    <div class="container">
+      <!-- Header Forum -->
+      <div class="flex items-center justify-between section-header flex-wrap gap-3">
+        <div>
+          <span class="section-eyebrow">Ruang Tanya & Jawab</span>
+          <h1 class="section-title">Forum Komunitas UMKM</h1>
+          <p class="section-subtitle">
+            Diskusikan strategi pemasaran, perizinan, kelola keuangan, dan belajar dari kisah sesama wirausaha.
+          </p>
+        </div>
+        <button id="btnOpenCreateThreadModal" class="btn btn-cta btn-md">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+          Mulai Diskusi Baru
+        </button>
+      </div>
+
+      <!-- Detail View Back Button (Muncul jika membuka detail thread) -->
+      <div id="threadDetailBackBar" style="display: none; margin-bottom: 1rem;">
+        <button id="btnBackToThreadList" class="btn btn-ghost btn-sm" style="color: var(--blue);">
+          &larr; Kembali ke Forum
+        </button>
+      </div>
+
+      <!-- Thread Detail Container (Muncul jika ada ?id=...) -->
+      <div id="threadDetailContainer" style="display: none; margin-bottom: 2rem;">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- Thread List Section (Default View) -->
+      <div id="threadListSection">
+        <!-- Filter Toolbar -->
+        <div class="card mb-4" style="padding: 1.25rem;">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div style="grid-column: span 2;">
+              <div class="input-with-icon">
+                <div class="input-icon-left">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <input type="text" id="forumSearchInput" class="form-input" placeholder="Cari topik diskusi...">
+              </div>
+            </div>
+
+            <div>
+              <select id="forumCategoryFilter" class="form-select">
+                <option value="">Semua Kategori</option>
+                <option value="Tips Pemasaran">Tips Pemasaran</option>
+                <option value="Manajemen Keuangan">Manajemen Keuangan</option>
+                <option value="Pengembangan Produk">Pengembangan Produk</option>
+                <option value="Tantangan Bisnis">Tantangan Bisnis</option>
+                <option value="Pengalaman & Kisah Sukses">Pengalaman & Kisah Sukses</option>
+              </select>
+            </div>
+
+            <div>
+              <select id="forumSortOrder" class="form-select">
+                <option value="newest">Terbaru</option>
+                <option value="popular">Paling Populer</option>
+                <option value="comments">Paling Banyak Komentar</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thread List Cards -->
+        <div class="flex flex-col gap-3" id="forumThreadsList">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Buat Thread Baru -->
+  <div id="createThreadModal" class="modal-backdrop">
+    <div class="modal-dialog modal-dialog-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">Buat Diskusi / Thread Baru</h3>
+        <button id="btnCloseCreateThreadModal" class="modal-close" aria-label="Tutup">&times;</button>
+      </div>
+      <form id="createThreadForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="newThreadTitle">Judul Diskusi <span class="required">*</span></label>
+            <input type="text" id="newThreadTitle" class="form-input" placeholder="Contoh: Bagaimana cara menembus kurasi bazaar kuliner bergengsi?" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newThreadCategory">Kategori Topik <span class="required">*</span></label>
+            <select id="newThreadCategory" class="form-select" required>
+              <option value="Tips Pemasaran">Tips Pemasaran</option>
+              <option value="Manajemen Keuangan">Manajemen Keuangan</option>
+              <option value="Pengembangan Produk">Pengembangan Produk</option>
+              <option value="Tantangan Bisnis">Tantangan Bisnis</option>
+              <option value="Pengalaman & Kisah Sukses">Pengalaman & Kisah Sukses</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newThreadContent">Isi Cerita / Pertanyaan <span class="required">*</span></label>
+            <textarea id="newThreadContent" class="form-textarea" placeholder="Tuliskan pengalaman, pertanyaan, atau studi kasus bisnis Anda..." style="min-height: 140px;" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnCancelCreateThread" class="btn btn-outline btn-sm">Batal</button>
+          <button type="submit" class="btn btn-primary btn-sm">Terbitkan Thread</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dynamic Footer & Mobile Bottom Navigation -->
+  <div id="site-footer"></div>
+  <div id="site-bottom-nav"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/forum.js"></script>
+</body>
+</html>
+
